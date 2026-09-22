@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIRALIEVW — магазин одежды</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f7f7f5;color:#111}
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #eee}
+.nav{max-width:1200px;margin:auto;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.logo{font-size:22px;font-weight:900;letter-spacing:2px}
+nav a{margin:0 12px;text-decoration:none;color:#222;font-size:14px}
+.cart{border:0;background:#111;color:#fff;border-radius:30px;padding:11px 17px;cursor:pointer}
+.hero{max-width:1200px;margin:22px auto;padding:70px 30px;border-radius:24px;background:#151515;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.hero h1{font-size:clamp(42px,7vw,78px);line-height:.95;margin-bottom:20px}
+.hero p{color:#ccc;max-width:480px;line-height:1.6;margin-bottom:28px}
+.btn{display:inline-block;background:#fff;color:#111;padding:14px 22px;border-radius:30px;text-decoration:none;font-weight:700}
+section{max-width:1200px;margin:60px auto;padding:0 20px}
+.title{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}
+.title h2{font-size:32px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #eee}
+.photo{height:310px;background:#ddd;display:flex;align-items:center;justify-content:center;font-size:18px;color:#777}
+.p1{background:linear-gradient(145deg,#dedbd4,#9c9992)}
+.p2{background:linear-gradient(145deg,#d8d8d8,#777)}
+.p3{background:linear-gradient(145deg,#e4d8cc,#8f7563)}
+.p4{background:linear-gradient(145deg,#d9ddd9,#565b57)}
+.info{padding:16px}
+.info h3{font-size:17px;margin-bottom:7px}
+.price{font-weight:800;margin-bottom:13px}
+.buy{width:100%;border:0;background:#111;color:#fff;padding:12px;border-radius:10px;cursor:pointer}
+footer{margin-top:70px;background:#111;color:#fff;padding:40px 20px;text-align:center}
+@media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.hero{margin:12px;padding:45px 24px}.hero h1{font-size:48px}nav{display:none}.photo{height:240px}}
+@media(max-width:480px){.products{grid-template-columns:1fr}.photo{height:300px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">MIRALIEVW</div>
+    <nav><a href="#new">Новинки</a><a href="#catalog">Каталог</a><a href="#contacts">Контакты</a></nav>
+    <button class="cart" onclick="showCart()">Корзина (<span id="count">0</span>)</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div>
+      <div style="color:#aaa;margin-bottom:12px;letter-spacing:2px">NEW COLLECTION</div>
+      <h1>ОДЕЖДА<br>С ХАРАКТЕРОМ</h1>
+      <p>Современная базовая одежда на каждый день. Минималистичный стиль, комфорт и качественная посадка.</p>
+      <a class="btn" href="#catalog">Смотреть коллекцию</a>
+    </div>
+  </div>
+
+  <section id="new">
+    <div class="title"><h2>Новинки</h2><span>2026</span></div>
+    <div class="products" id="catalog">
+      <article class="card">
+        <div class="photo p1">ФОТО ТОВАРА</div>
+        <div class="info"><h3>Oversize футболка</h3><div class="price">2 490 сом</div><button class="buy" onclick="add('Oversize футболка')">В корзину</button></div>
+      </article>
+      <article class="card">
+        <div class="photo p2">ФОТО ТОВАРА</div>
+        <div class="info"><h3>Худи Essential</h3><div class="price">4 990 сом</div><button class="buy" onclick="add('Худи Essential')">В корзину</button></div>
+      </article>
+      <article class="card">
+        <div class="photo p3">ФОТО ТОВАРА</div>
+        <div class="info"><h3>Куртка Urban</h3><div class="price">7 990 сом</div><button class="buy" onclick="add('Куртка Urban')">В корзину</button></div>
+      </article>
+      <article class="card">
+        <div class="photo p4">ФОТО ТОВАРА</div>
+        <div class="info"><h3>Брюки Relax</h3><div class="price">3 990 сом</div><button class="buy" onclick="add('Брюки Relax')">В корзину</button></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts">
+  <h3 style="margin-bottom:10px">MIRALIEVW</h3>
+  <p style="color:#aaa">Ваш магазин одежды • Instagram / WhatsApp</p>
+</footer>
+
+<script>
+let count=0;
+function add(name){
+  count++;
+  document.getElementById('count').textContent=count;
+  alert(name+' добавлен в корзину');
+}
+function showCart(){
+  alert(count ? 'В корзине товаров: '+count : 'Корзина пока пуста');
+}
+</script>
+</body>
+</html>
